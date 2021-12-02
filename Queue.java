@@ -33,13 +33,13 @@ class Queue {
         return stack2.peek();
     }
     
-    // Return whether the queue is empty.// Time complexity: O(1), space complexity: O
+    // Return whether the queue is empty.// Time complexity: O(1), space complexity: 0
     public boolean empty() {
         return stack1.isEmpty() && stack2.isEmpty();
 
     }
 
-    // Return the number of elements in queue.
+    // Return the number of elements in queue. // Time complexity: O(1), space complexity: 0
     public int size() {
         return stack1.size()+stack2.size();
     }

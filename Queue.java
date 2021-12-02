@@ -26,7 +26,14 @@ class Queue {
     
     // Get the front element.
     public int peek() {
-
+        if(!stack1.isEmpty())
+        {
+            while(stack2.isEmpty())
+            {
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.peek();
     }
     
     // Return whether the queue is empty.

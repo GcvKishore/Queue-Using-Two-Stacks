@@ -14,23 +14,23 @@ class Queue {
     }
 
     // Push element x to the back of queue. // Time Complexity: O(1),  space complexity: O(N)
-    public void enqueue(int x) {
-        stack1.push(x);
+    public void enqueue(int x) 
+    {
+        while(!stack1.isEmpty())
+        stack2.push(stack1.pop());
+        stack2.push(x);
+        while(!stack2.isEmpty())
+        stack1.push(stack2.pop());
     }
 
     // Removes the element from in front of queue. // Time complexity : O(1), space complexity: O(N)
     public int dequeue() {
-        peek();
-        return stack2.pop();
+        return stack1.pop();
     }
     
     // Get the front element. // Time complexity: O(N). space complexity O(N)
     public int peek() {
-        if(!stack1.isEmpty()){
-            while(stack2.isEmpty());
-                stack2.push(stack1.pop());
-        }
-        return stack2.peek();
+        return stack1.peek();
     }
     
     // Return whether the queue is empty.// Time complexity: O(1), space complexity: 0
@@ -45,9 +45,11 @@ class Queue {
     }
     
     public static void main(String[] args) {
+       // System.out.println("Scanned");
         Scanner scan = new Scanner(System.in);
         Queue queue = new Queue();
         int queries = Integer.parseInt(scan.nextLine());
+        System.out.println(queries);
         for(int i = 0; i < queries; i++) {
             String input = scan.nextLine();
             if (input.charAt(0) == '1') {
